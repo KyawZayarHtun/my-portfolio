@@ -329,18 +329,24 @@ p, li, span, label, input, textarea {
   box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
 }
 
+.post:hover {
+  box-shadow: 3px 14px 17px 7px rgba(0,0,0,0.62);
+-webkit-box-shadow: 3px 14px 17px 7px rgba(0,0,0,0.62);
+-moz-box-shadow: 3px 14px 17px 7px rgba(0,0,0,0.62);
+}
+
 .post-preview {
-  background-color: #fff;
+  background-color: var(--mainColor);
   padding: 15px;
 }
 
 .post-title {
   margin: 0;
-  color: #000;
+  color: var(--mainText);
 }
 
 .post-intro {
-  color: #4b5156;
+  color: var(--secondaryText);
   font-size: 14px;
 }
 
@@ -353,6 +359,11 @@ p, li, span, label, input, textarea {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.thumbnail:hover {
+  transform: scale(1.2);
+  tr
 }
 
 #contact-form {
