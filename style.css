@@ -17,7 +17,15 @@
 
   --btnColor: #000;
 }
-
+footer {
+  background-color: var(--mainColor);
+  color: var(--mainText);
+  border-color: var(--borderColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
 * {
   box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -79,11 +87,7 @@ p, li, span, label, input, textarea {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1200px) {
-  .main-container {
-    width: 95%;
-  }
-}
+
 
 .greeting-wrapper {
   display: grid;
@@ -274,24 +278,11 @@ p, li, span, label, input, textarea {
   right: -4px;
 }
 
-@media screen and (max-width: 800px) {
-  .intro-wrapper {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "nav-wrapper"
-      "left-column"
-      "right-column";
-  }
 
-  .right-column {
-    justify-content: center;
-    /* padding: 50px 0 50px 0; */
-  }
-}
 
 .about-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   padding: 50px 0 50px 0;
   gap: 100px;
 }
@@ -316,10 +307,12 @@ p, li, span, label, input, textarea {
 
 .post-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 320px);
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   justify-content: center;
   padding-bottom: 50px;
+  
+
 }
 
 .post {
@@ -327,17 +320,21 @@ p, li, span, label, input, textarea {
   -webkit-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
   box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
 }
+
 
 .post:hover {
   box-shadow: 3px 14px 17px 7px rgba(0,0,0,0.62);
 -webkit-box-shadow: 3px 14px 17px 7px rgba(0,0,0,0.62);
 -moz-box-shadow: 3px 14px 17px 7px rgba(0,0,0,0.62);
+
 }
 
 .post-preview {
   background-color: var(--mainColor);
   padding: 15px;
+  height: 100px;
 }
 
 .post-title {
@@ -349,20 +346,32 @@ p, li, span, label, input, textarea {
   color: var(--secondaryText);
   font-size: 14px;
 }
+.post-img {
+  overflow: hidden;
+}
 
 .thumbnail {
   display: block;
   width: 100%;
-  height: 180px;
+  height: 320px;
   object-fit: cover;
+ 
+    margin: 0 auto;
+    
   /* for dummy */
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  transition: transform .5s linear;
 }
 
 .thumbnail:hover {
-  transform: scale(1.2);
+  transform: scale(1.5);
+  z-index: 0;
+}
+
+.post:nth-last-child().post-img.thumbnail:hover {
+  transform: scale(0.5);
 }
 
 #contact-form {
@@ -374,6 +383,7 @@ p, li, span, label, input, textarea {
   border-radius: 5px;
   background-color: var(--mainColor);
   margin-bottom: 50px;
+  z-index: 1;
 }
 
 #contact-form label {
@@ -406,4 +416,55 @@ p, li, span, label, input, textarea {
   color: #fff;
   background-color: var(--btnColor);
   border: none;
+}
+
+.blob {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  z-index: 1;
+}
+
+@media screen and (max-width: 1200px) {
+  .main-container {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .post-wrapper {
+    grid-template-columns: 1fr;
+    
+  }
+  .intro-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "nav-wrapper"
+      "left-column"
+      "right-column";
+  }
+
+  .right-column {
+    justify-content: center;
+  }
+  .skills {
+    /* width: 35em; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: var(--previewShadow);
+  }
+
+}
+@media screen and (max-width: 400px) {
+  .right-column > #preview-shadow {
+    max-width: 500px;
+    height: 180px;
+    padding-left: 10px;
+    padding-top: 15px;
+  }
+  .post-preview {
+    height: auto;
+  }
+
 }
