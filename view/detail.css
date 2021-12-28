@@ -51,7 +51,7 @@ strong {
 
 .s2 {
     
-    background-image: url(/assets/patternpad.svg);
+    background-image: url(../assets/patternpad.svg);
     border-bottom: 1px solid var(--borderColor);
     overflow: auto;
     width: 100%;
